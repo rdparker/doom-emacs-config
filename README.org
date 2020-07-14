@@ -9,23 +9,23 @@
 - [[#troubleshooting][Troubleshooting]]
 
 * Description
-The configuration I use with the [[github:hlissner/doom-emacs/tree/develop][develop]] branch of [[github:hlissner/doom-emacs][Doom Emacs]].
+The configuration I use with the [[https://github.com/hlissner/doom-emacs/tree/develop][develop]] branch of [[https://github.com/hlissner/doom-emacs][Doom Emacs]].
 
 # A summary of what this module does.
 
 + [[https://microsoft.github.io/language-server-protocol][Language Server Protocol]] support via [[https://emacs-lsp.github.io/lsp-mode/][LSP Mode (LSP)]]
-+ [[https://fsharp.org/][F#]] autocompletion, renaming and more using the [[github:fsprojects/fsharp-language-server][F# Language Server]]
++ [[https://fsharp.org/][F#]] autocompletion, renaming and more using the [[https://github.com/fsprojects/fsharp-language-server][F# Language Server]]
 
-  This is in place of LSP's builtin support using [[github:fsharp/FsAutoComplete][FsAutoComplete (FSAC)]].
+  This is in place of LSP's builtin support using [[https://github.com/fsharp/FsAutoComplete][FsAutoComplete (FSAC)]].
   The must be
 + .NET Multiproject Solution Support
 + Window navigation à la [[https://www.spacemacs.org/][Spacemacs]]
   # Dvorak htns navigation in EVIL mode
-+ Dvorak @@html:<kbd>h</kbd>@@ @@html:<kbd>t</kbd>@@ @@html:<kbd>n</kbd>@@ @@html:<kbd>s</kbd>@@ navigation in [[github:emacs-evil/evil][EVIL]] mode
++ Dvorak @@html:<kbd>h</kbd>@@ @@html:<kbd>t</kbd>@@ @@html:<kbd>n</kbd>@@ @@html:<kbd>s</kbd>@@ navigation in [[https://github.com/emacs-evil/evil][EVIL]] mode
 
 * Prerequisites
 
-For now, the [[github:fsprojects/fsharp-language-server][F# Language Server]] must be manually compiled and installed. Then
+For now, the [[https://github.com/fsprojects/fsharp-language-server][F# Language Server]] must be manually compiled and installed. Then
 set the ~fsharp-lsp-executable~ path in =.doom.d/config.el=.
 
 # An in-depth list of features, how to use them, and their dependencies.

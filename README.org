@@ -22,6 +22,7 @@ The configuration I use with the [[https://github.com/hlissner/doom-emacs/tree/d
 + Window navigation à la [[https://www.spacemacs.org/][Spacemacs]]
   # Dvorak htns navigation in EVIL mode
 + Dvorak =h t n s= navigation in [[https://github.com/emacs-evil/evil][EVIL]] mode
++ LSP integration with [[https://github.com/Alexander-Miller/treemacs][Treemacs]] via [[https://github.com/emacs-lsp/lsp-treemacs][lsp-treemacs]]
 
 * Prerequisites
 

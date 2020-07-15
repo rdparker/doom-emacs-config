@@ -60,7 +60,7 @@
 
 ;; FSharp
 (after! lsp-mode
-  (setq fsharp2-lsp-executable
+  (setq fsharp-lsp-executable
         (if IS-WINDOWS
             "E:/Repos/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/win10-x64/FSharpLanguageServer.exe"
           "~/src/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/linux-x64/FSharpLanguageServer"))

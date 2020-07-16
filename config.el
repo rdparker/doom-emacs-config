@@ -54,9 +54,29 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Better dotnet Projectile support
-(add-load-path! (expand-file-name "packages" doom-private-dir))
-(after! projectile (require 'projectile+))
+;; Do my standard Dvorak remapping.
+;;
+;; I turn off evil-snipe mode to avoid having "s" and "S" bound to evil-snipe. I
+;; can't seem to figure out how to change the binding that is done by that mode,
+;; but then I rebind k/K to have the same behavior.
+(after! evil-snipe (evil-snipe-mode -1))
+(map! :nv "h" 'evil-backward-char
+      :nv "H" 'evil-window-top
+      :nv "t" 'evil-next-line
+      :nv "T" 'evil-join
+      :nv "n" 'evil-previous-line
+      :nv "N" '+lookup/documentation
+      :nv "s" 'evil-forward-char
+      :nv "S" 'evil-window-bottom
+      :nv "l" 'evil-ex-search-next
+      :nv "L" 'evil-ex-search-previous
+
+      ;; NOTE: These replacements are evil not vim bindings.
+      :nv "j" 'evil-snipe-t
+      :nv "J" 'evil-snipe-T
+      :nv "k" 'evil-snipe-s
+      :nv "K" 'evil-snipe-S)
+
 
 ;; FSharp
 (after! lsp-mode
@@ -80,6 +100,10 @@
                                ("fsharp/endProgress" #'ignore))
     :priority 1)))
 
+;; Projectile(+) Better dotnet Projectile support
+(add-load-path! (expand-file-name "packages" doom-private-dir))
+(after! projectile (require 'projectile+))
+
 ;; winum
 ;;
 ;; Use a Spacemacs-y.  Rebind M-0 -- M-9 to switch windows.
@@ -97,29 +121,6 @@
   (define-key winum-keymap (kbd "M-7") 'winum-select-window-7)
   (define-key winum-keymap (kbd "M-8") 'winum-select-window-8)
   (define-key winum-keymap (kbd "M-9") 'winum-select-window-9))
-
-;; Do my standard Dvorak remapping.
-;;
-;; I turn off evil-snipe mode to avoid having "s" and "S" bound to evil-snipe. I
-;; can't seem to figure out how to change the binding that is done by that mode,
-;; but then I rebind k/K to have the same behavior.
-(after! evil-snipe (evil-snipe-mode -1))
-(map! :nv "h" 'evil-backward-char
-      :nv "H" 'evil-window-top
-      :nv "t" 'evil-next-line
-      :nv "T" 'evil-join
-      :nv "n" 'evil-previous-line
-      :nv "N" '+lookup/documentation
-      :nv "s" 'evil-forward-char
-      :nv "S" 'evil-window-bottom
-      :nv "l" 'evil-ex-search-next
-      :nv "L" 'evil-ex-search-previous
-
-      ;; NOTE: These replacements are evil not vim bindings.
-      :nv "j" 'evil-snipe-t
-      :nv "J" 'evil-snipe-T
-      :nv "k" 'evil-snipe-s
-      :nv "K" 'evil-snipe-S)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

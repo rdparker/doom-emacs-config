@@ -79,26 +79,26 @@
 
 
 ;; FSharp
-(after! lsp-mode
-  (setq fsharp-lsp-executable
-        (if IS-WINDOWS
-            "E:/Repos/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/win10-x64/FSharpLanguageServer.exe"
-          "~/src/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/linux-x64/FSharpLanguageServer"))
+;; (after! lsp-mode
+;;   (setq fsharp-lsp-executable
+;;         (if IS-WINDOWS
+;;             "E:/Repos/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/win10-x64/FSharpLanguageServer.exe"
+;;           "~/src/fsharp-language-server/src/FSharpLanguageServer/bin/Release/netcoreapp3.0/linux-x64/FSharpLanguageServer"))
 
-  ;; Required to avoid issues with lsp-mode's built-in F# client; even though
-  ;; we're using our mode instead, lsp-mode can't build the LSP client
-  ;; without this value defined
-  (setq lsp-fsharp-server-path "")
+;;   ;; Required to avoid issues with lsp-mode's built-in F# client; even though
+;;   ;; we're using our mode instead, lsp-mode can't build the LSP client
+;;   ;; without this value defined
+;;   (setq lsp-fsharp-server-path "")
 
-  (lsp-register-client
-   (make-lsp-client
-    :new-connection (lsp-stdio-connection fsharp-lsp-executable)
-    :major-modes '(fsharp-mode)
-    :server-id 'fsharp-lsp
-    :notification-handlers (ht ("fsharp/startProgress" #'ignore)
-                               ("fsharp/incrementProgress" #'ignore)
-                               ("fsharp/endProgress" #'ignore))
-    :priority 1)))
+;;   (lsp-register-client
+;;    (make-lsp-client
+;;     :new-connection (lsp-stdio-connection fsharp-lsp-executable)
+;;     :major-modes '(fsharp-mode)
+;;     :server-id 'fsharp-lsp
+;;     :notification-handlers (ht ("fsharp/startProgress" #'ignore)
+;;                                ("fsharp/incrementProgress" #'ignore)
+;;                                ("fsharp/endProgress" #'ignore))
+;;     :priority 1)))
 (after! fsharp-mode (add-hook 'fsharp-mode-hook 'dotnet-mode))
 
 (when IS-WINDOWS

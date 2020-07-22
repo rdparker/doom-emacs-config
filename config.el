@@ -99,6 +99,7 @@
                                ("fsharp/incrementProgress" #'ignore)
                                ("fsharp/endProgress" #'ignore))
     :priority 1)))
+(after! fsharp-mode (add-hook 'fsharp-mode-hook 'dotnet-mode))
 
 ;; Projectile(+) Better dotnet Projectile support
 (add-load-path! (expand-file-name "packages" doom-private-dir))

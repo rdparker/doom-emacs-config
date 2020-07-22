@@ -101,6 +101,10 @@
     :priority 1)))
 (after! fsharp-mode (add-hook 'fsharp-mode-hook 'dotnet-mode))
 
+(when IS-WINDOWS
+  (setq  ispell-hunspell-dict-paths-alist
+         '(("en_US" "C:\\Hunspell\\en_US.aff"))))
+
 ;; Projectile(+) Better dotnet Projectile support
 (add-load-path! (expand-file-name "packages" doom-private-dir))
 (after! projectile (require 'projectile+))

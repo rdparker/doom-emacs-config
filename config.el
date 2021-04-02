@@ -114,6 +114,10 @@
                                 (concat "\"" fsi "\" --fsi-server-input-codepage:65001")
                               (concat "\"" (fsharp-mode--executable-find "dotnet.exe") "\" fsi --codepage:65001")))))))
 
+(use-package! nix-mode
+  :mode "\\.nix\\'"
+  :ensure t)
+
 (when IS-WINDOWS
   (setq  ispell-hunspell-dict-paths-alist
          '(("en_US" "C:\\Hunspell\\en_US.aff"))))

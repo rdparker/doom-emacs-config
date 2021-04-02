@@ -21,16 +21,20 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font "Hasklig-12"
+(setq doom-font "PragmataPro" ; "Hasklig-12"
       doom-variable-pitch-font "Fira Sans" ; inherits `doom-font''s :size
       doom-serif-font "Fira Code"
-      doom-unicode-font "Symbola";; "Input Mono"
+      doom-unicode-font "PragmataPro";; "Symbola";; "Input Mono"
       doom-big-font "Hack-19")
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-two)
+(setq doom-theme 'doom-one)
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -99,7 +103,15 @@
 ;;                                ("fsharp/incrementProgress" #'ignore)
 ;;                                ("fsharp/endProgress" #'ignore))
 ;;     :priority 1)))
-(after! fsharp-mode (add-hook 'fsharp-mode-hook 'dotnet-mode))
+(after! fsharp-mode (progn
+                      (add-hook 'fsharp-mode-hook 'dotnet-mode)
+                      (setq inferior-fsharp-program
+                        (if fsharp-ac-using-mono
+                            "fsharpi --readline-"
+                          (let ((fsi (fsharp-mode--executable-find "fsi.exe")))
+                            (if fsi
+                                (concat "\"" fsi "\" --fsi-server-input-codepage:65001")
+                              (concat "\"" (fsharp-mode--executable-find "dotnet.exe") "\" fsi --codepage:65001")))))))
 
 (when IS-WINDOWS
   (setq  ispell-hunspell-dict-paths-alist
